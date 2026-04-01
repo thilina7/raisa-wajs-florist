@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id             String         @id @default(cuid())
+  name           String
+  slug           String         @unique
+  description    String
+  categoryId     String
+  category       Category       @relation(fields: [categoryId], references: [id])
+  isActive       Boolean        @default(true)
+  hasFreeAddOn   Boolean        @default(false)
+  freeAddOnLabel String?
+  images         ProductImage[]
+  sizeVariants   SizeVariant[]
+  orderItems     OrderItem[]
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String
+  order     Int     @default(0)
+}
+
+model SizeVariant {
+  id            String      @id @default(cuid())
+  productId     String
+  product       Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name          String
+  price         Float
+  originalPrice Float?
+  imageUrl      String?
+  orderItems    OrderItem[]
+}
+
+model AddOn {
+  id              String           @id @default(cuid())
+  name            String
+  price           Float
+  imageUrl        String?
+  isActive        Boolean          @default(true)
+  orderItemAddOns OrderItemAddOn[]
+}
+
+model Order {
+  id                    String      @id @default(cuid())
+  orderNumber           String      @unique
+  status                String      @default("pending")
+  recipientName         String
+  recipientPhone        String
+  deliveryStreet        String
+  deliveryCity          String
+  deliveryPostcode      String
+  deliveryInstructions  String?
+  subtotal              Float
+  deliveryFee           Float
+  total                 Float
+  stripeSessionId       String?     @unique
+  stripePaymentIntentId String?
+  items                 OrderItem[]
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+}
+
+model OrderItem {
+  id            String           @id @default(cuid())
+  orderId       String
+  order         Order            @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product          @relation(fields: [productId], references: [id])
+  sizeVariantId String
+  sizeVariant   SizeVariant      @relation(fields: [sizeVariantId], references: [id])
+  quantity      Int
+  unitPrice     Float
+  lineTotal     Float
+  deliveryDate  String
+  deliverySlot  String
+  cardMessage   String?
+  addOns        OrderItemAddOn[]
+}
+
+model OrderItemAddOn {
+  id          String    @id @default(cuid())
+  orderItemId String
+  orderItem   OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+  addOnId     String
+  addOn       AddOn     @relation(fields: [addOnId], references: [id])
+  price       Float
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("admin")
+  createdAt    DateTime @default(now())
+}
