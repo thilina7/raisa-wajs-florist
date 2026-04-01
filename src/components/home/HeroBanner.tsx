@@ -6,7 +6,7 @@ export default function HeroBanner() {
     <section className="relative min-h-[500px] overflow-hidden sm:min-h-[600px] lg:min-h-[700px]">
       {/* Background image */}
       <Image
-        src="https://picsum.photos/seed/hero-flowers/1920/1080"
+        src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1920&h=1080&fit=crop"
         alt="Beautiful flower arrangement"
         fill
         priority

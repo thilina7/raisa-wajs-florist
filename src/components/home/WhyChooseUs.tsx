@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
               <Image
-                src="https://picsum.photos/seed/florist-work/800/600"
+                src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=800&h=600&fit=crop"
                 alt="Florist arranging a beautiful bouquet"
                 fill
                 className="object-cover"

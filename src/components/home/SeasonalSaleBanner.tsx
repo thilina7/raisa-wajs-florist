@@ -9,7 +9,7 @@ export default function SeasonalSaleBanner() {
           {/* Background */}
           <div className="relative h-64 sm:h-72 lg:h-80">
             <Image
-              src="https://picsum.photos/seed/spring-sale/1200/400"
+              src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=1200&h=400&fit=crop"
               alt="Spring flowers sale"
               fill
               className="object-cover"
