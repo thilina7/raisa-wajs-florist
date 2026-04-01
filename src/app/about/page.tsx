@@ -44,13 +44,13 @@ const TEAM = [
     name: "Raisa Wajs",
     role: "Founder & Head Florist",
     bio: "With over 15 years of floral design experience, Raisa founded the studio with a simple belief: flowers have the power to transform any moment into something extraordinary.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+    image: "https://picsum.photos/seed/raisa-wajs/400/400",
   },
   {
     name: "Elena Kowalski",
     role: "Senior Florist",
     bio: "Elena brings a modern artistic flair to every arrangement. Trained in European floral design, she specialises in wedding and luxury event floristry.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=face",
+    image: "https://picsum.photos/seed/elena-kowalski/400/400",
   },
 ];
 

@@ -126,6 +126,7 @@ async function main() {
     originalDeluxePrice?: number;
     originalPremiumPrice?: number;
     imageUrl: string;
+    imageUrl2?: string;
   }
 
   async function createProduct(data: ProductSeed) {
@@ -146,7 +147,7 @@ async function main() {
               order: 0,
             },
             {
-              url: data.imageUrl.replace("w=600", "w=400"),
+              url: data.imageUrl2 ?? data.imageUrl,
               alt: `${data.name} bouquet - alternate view`,
               order: 1,
             },
@@ -189,7 +190,8 @@ async function main() {
     standardPrice: 34.99,
     deluxePrice: 44.99,
     premiumPrice: 54.99,
-    imageUrl: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/rose-lily/600/600",
+    imageUrl2: "https://picsum.photos/seed/rose-lily-2/600/600",
   });
 
   await createProduct({
@@ -200,7 +202,8 @@ async function main() {
     standardPrice: 29.99,
     deluxePrice: 39.99,
     premiumPrice: 49.99,
-    imageUrl: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/radiance/600/600",
+    imageUrl2: "https://picsum.photos/seed/radiance-2/600/600",
   });
 
   await createProduct({
@@ -216,7 +219,8 @@ async function main() {
     originalStandardPrice: 34.99,
     originalDeluxePrice: 44.99,
     originalPremiumPrice: 54.99,
-    imageUrl: "https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/bright-tulips/600/600",
+    imageUrl2: "https://picsum.photos/seed/bright-tulips-2/600/600",
   });
 
   // Romantic products
@@ -228,7 +232,8 @@ async function main() {
     standardPrice: 79.99,
     deluxePrice: 99.99,
     premiumPrice: 129.99,
-    imageUrl: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/red-roses/600/600",
+    imageUrl2: "https://picsum.photos/seed/red-roses-2/600/600",
   });
 
   await createProduct({
@@ -241,7 +246,8 @@ async function main() {
     standardPrice: 39.99,
     deluxePrice: 49.99,
     premiumPrice: 64.99,
-    imageUrl: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/moonlight/600/600",
+    imageUrl2: "https://picsum.photos/seed/moonlight-2/600/600",
   });
 
   await createProduct({
@@ -255,7 +261,8 @@ async function main() {
     originalStandardPrice: 54.99,
     originalDeluxePrice: 69.99,
     originalPremiumPrice: 84.99,
-    imageUrl: "https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/rose-garden/600/600",
+    imageUrl2: "https://picsum.photos/seed/rose-garden-2/600/600",
   });
 
   // Sympathy products
@@ -267,7 +274,8 @@ async function main() {
     standardPrice: 39.99,
     deluxePrice: 54.99,
     premiumPrice: 69.99,
-    imageUrl: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/serenity/600/600",
+    imageUrl2: "https://picsum.photos/seed/serenity-2/600/600",
   });
 
   await createProduct({
@@ -278,7 +286,8 @@ async function main() {
     standardPrice: 34.99,
     deluxePrice: 49.99,
     premiumPrice: 64.99,
-    imageUrl: "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/white-blossom/600/600",
+    imageUrl2: "https://picsum.photos/seed/white-blossom-2/600/600",
   });
 
   // Luxury products
@@ -290,7 +299,8 @@ async function main() {
     standardPrice: 69.99,
     deluxePrice: 89.99,
     premiumPrice: 119.99,
-    imageUrl: "https://images.unsplash.com/photo-1468327768560-75b778cbb551?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/opulence/600/600",
+    imageUrl2: "https://picsum.photos/seed/opulence-2/600/600",
   });
 
   await createProduct({
@@ -303,7 +313,8 @@ async function main() {
     standardPrice: 99.99,
     deluxePrice: 139.99,
     premiumPrice: 179.99,
-    imageUrl: "https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/grand-gesture/600/600",
+    imageUrl2: "https://picsum.photos/seed/grand-gesture-2/600/600",
   });
 
   // Seasonal products
@@ -315,7 +326,8 @@ async function main() {
     standardPrice: 32.99,
     deluxePrice: 42.99,
     premiumPrice: 52.99,
-    imageUrl: "https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/springtime/600/600",
+    imageUrl2: "https://picsum.photos/seed/springtime-2/600/600",
   });
 
   await createProduct({
@@ -329,7 +341,8 @@ async function main() {
     originalStandardPrice: 36.99,
     originalDeluxePrice: 46.99,
     originalPremiumPrice: 56.99,
-    imageUrl: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/spring-hedgerow/600/600",
+    imageUrl2: "https://picsum.photos/seed/spring-hedgerow-2/600/600",
   });
 
   await createProduct({
@@ -342,7 +355,8 @@ async function main() {
     standardPrice: 31.99,
     deluxePrice: 41.99,
     premiumPrice: 51.99,
-    imageUrl: "https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/spring-sunshine/600/600",
+    imageUrl2: "https://picsum.photos/seed/spring-sunshine-2/600/600",
   });
 
   // Under £30 products
@@ -354,7 +368,8 @@ async function main() {
     standardPrice: 19.99,
     deluxePrice: 24.99,
     premiumPrice: 29.99,
-    imageUrl: "https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/sunlight/600/600",
+    imageUrl2: "https://picsum.photos/seed/sunlight-2/600/600",
   });
 
   await createProduct({
@@ -368,7 +383,8 @@ async function main() {
     originalStandardPrice: 27.99,
     originalDeluxePrice: 32.99,
     originalPremiumPrice: 37.99,
-    imageUrl: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/sweet-treat/600/600",
+    imageUrl2: "https://picsum.photos/seed/sweet-treat-2/600/600",
   });
 
   await createProduct({
@@ -381,7 +397,8 @@ async function main() {
     standardPrice: 17.99,
     deluxePrice: 22.99,
     premiumPrice: 27.99,
-    imageUrl: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&h=600&fit=crop",
+    imageUrl: "https://picsum.photos/seed/petite-posy/600/600",
+    imageUrl2: "https://picsum.photos/seed/petite-posy-2/600/600",
   });
 
   // --- Admin User ---
